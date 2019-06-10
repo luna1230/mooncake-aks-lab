@@ -9,10 +9,27 @@
 > 提示！点击打开注册页面 [https://azure.microsoft.com/zh-cn/free/](https://azure.microsoft.com/zh-cn/free/)
 
 ### 1.2 创建带有container 的虚拟机
+从界面上选择创建带有container 的虚拟机。这里我们选择 Windows Server 2019 Datacenter with Containers
+
+在左上角选择create a reasource ，搜索container ，在搜索结果中选择Windows Server 2019 Datacenter with Containers ，点击创建
+<p align="left">
+	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_basic.jpg" alt="Sample"  width="490" height="670">
+</p>
+<p align="left">
+	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_disk.jpg" alt="Sample"  width="490" height="670">
+</p>
+<p align="left">
+	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_network.jpg" alt="Sample"  width="490" height="670">
+</p>
+<p align="left">
+	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_verify.jpg" alt="Sample"  width="490" height="670">
+</p>
 
 ### 1.3 关闭安全管控
-
-
+通过RDP登录到虚拟机中，关闭IE的安全管控
+<p align="left">
+	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_IE.jpg" alt="Sample"  width="700" height="400">
+</p>
 
 ### 1.4 本地安装Azure CLI
 
