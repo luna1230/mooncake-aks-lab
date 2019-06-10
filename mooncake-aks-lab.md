@@ -328,7 +328,7 @@ Result
 
 ```
 $ mkdir git-repo && cd git-repo
-$ git clone https://github.com/nichochen/japp-spring-boot-rest.git japp 
+$ git clone https://github.com/luna1230/japp-spring-boot-rest.git japp 
 ```
 
 ### 4.2 应用容器化
