@@ -76,14 +76,21 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 在左上角选择create a reasource ，搜索kubernetes ，在搜索结果中选择 kubernetes service，点击创建
 
-```
-$ az group create -n k8s-cloud-labs -l chinaeast2
-$ az aks create -g k8s-cloud-labs -n k8s-cluster --disable-rbac --generate-ssh-keys
-```
-
-第一条命令是创建一个资源组，可以认为这是Azure上的存放对象的文件夹。这里我们选择使用East US数据中心。
-
-第二条命令是真正创建Kubernetes集群的命令。`az aks`命令是操作AKS服务的子命令。我们在资源组`k8s-cloud-labs`中创建了一个名为`k8s-cluster`的集群。命令执行后，稍等片刻。5-10分钟后一个生产可用的Kubernetes将会就绪。
+<p align="left">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/aks-basic.jpg" alt="Sample"  width="490" height="670">
+</p>
+<p align="left">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/aks_auth.jpg" alt="Sample"  width="490" height="400">
+</p>
+<p align="left">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/aks_network.jpg" alt="Sample"  width="490" height="400">
+</p>
+<p align="left">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/aks_monitor.jpg" alt="Sample"  width="490" height="400">
+</p>
+<p align="left">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/aks_verify.jpg" alt="Sample"  width="490" height="670">
+</p>
 
 执行如下命令可以查看当前Azure账号下已经创建好的Kubernetes集群列表
 
