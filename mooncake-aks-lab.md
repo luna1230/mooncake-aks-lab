@@ -103,7 +103,7 @@ Merged "k8s-cluster" as current context in /home/luna/.kube/config
 设置kubectl 的执行路径
 
 ```
-$env:path += 'C:\Users\luna\.azure-kubectl'
+$ $env:path += 'C:\Users\luna\.azure-kubectl;'
 ```
 
 一切就绪后，便可以通过`kubectl`命令操作Kuberentes集群。
@@ -196,7 +196,7 @@ Helm是Microsoft团队创建的开源项目。目前，Helm也已经是CNCF的�
 在使用Helm管理Kuberentes集群的应用以前，需要执行以下命令进行集群的初始化配置。
 
 ```
-$ set path=C:\Users\luna\Downloads\helm-v3.0.0-alpha.1-windows-amd64\windows-amd64;%path%
+$ $env:path += 'C:\Users\luna\Downloads\helm-v2.14.1-windows-amd64\windows-amd64;'
 $ helm init
 ```
 
