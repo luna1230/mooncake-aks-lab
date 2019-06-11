@@ -100,10 +100,10 @@ $ az aks get-credentials -g k8s-cloud-labs -n k8s-cluster
 Merged "k8s-cluster" as current context in /home/luna/.kube/config
 ```
 
-在cmd 命令行中设置kubectl 的执行路径
+设置kubectl 的执行路径
 
 ```
-$ set PATH=%PATH%;C:\Users\luna\.azure-kubectl
+$env:path += 'C:\Users\luna\.azure-kubectl'
 ```
 
 一切就绪后，便可以通过`kubectl`命令操作Kuberentes集群。
