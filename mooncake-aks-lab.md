@@ -2,11 +2,9 @@
 
 ## 热身运动
 
-### 1.1 注册Azure公有云账号
+### 1.1 登录Azure公有云账号
 
-本文将通过Azure公有云的Kubernetes服务Azure Kubernetes Service（AKS）快速地创建一个Kubernetes集群。还没有Azure账号的同学可以通过以下的连接免费申请，目前Azure为新用户提供了200美金的免费使用额度，足以支持完成本实验的内容。
-
-> 提示！点击打开注册页面 [https://azure.microsoft.com/zh-cn/free/](https://azure.microsoft.com/zh-cn/free/)
+本文将通过Azure公有云的Kubernetes服务Azure Kubernetes Service（AKS）快速地创建一个Kubernetes集群。
 
 ### 1.2 创建带有container 的虚拟机
 从界面上选择创建带有container 的虚拟机。这里我们选择 Windows Server 2019 Datacenter with Containers
