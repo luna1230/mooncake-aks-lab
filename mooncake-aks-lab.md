@@ -7,26 +7,30 @@
 本文将通过Azure公有云的Kubernetes服务Azure Kubernetes Service（AKS）快速地创建一个Kubernetes集群。
 
 ### 1.2 创建带有container 的虚拟机
+
 从界面上选择创建带有container 的虚拟机。这里我们选择 Windows Server 2019 Datacenter with Containers
 
 在左上角选择create a reasource ，搜索container ，在搜索结果中选择Windows Server 2019 Datacenter with Containers ，点击创建
+
 <p align="left">
-	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_basic.jpg" alt="Sample"  width="490" height="670">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_basic.jpg" alt="Sample"  width="490" height="670">
 </p>
 <p align="left">
-	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_disk.jpg" alt="Sample"  width="490" height="670">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_disk.jpg" alt="Sample"  width="490" height="670">
 </p>
 <p align="left">
-	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_network.jpg" alt="Sample"  width="490" height="670">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_network.jpg" alt="Sample"  width="490" height="670">
 </p>
 <p align="left">
-	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_verify.jpg" alt="Sample"  width="490" height="670">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_verify.jpg" alt="Sample"  width="490" height="670">
 </p>
 
 ### 1.3 关闭安全管控
+
 通过RDP登录到虚拟机中，关闭IE的安全管控
+
 <p align="left">
-	<img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_IE.jpg" alt="Sample"  width="700" height="400">
+    <img src="https://github.com/luna1230/mooncake-aks-lab/blob/master/images/window_IE.jpg" alt="Sample"  width="700" height="400">
 </p>
 
 ### 1.4 本地安装Azure CLI
@@ -68,7 +72,9 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 
 ### 2.1 通过AKS创建Kubernetes集群
 
-执行如下命令在Azure上创建一个Kubernetes集群。
+通过界面的方式在Azure上创建一个Kubernetes集群。
+
+在左上角选择create a reasource ，搜索kubernetes ，在搜索结果中选择 kubernetes service，点击创建
 
 ```
 $ az group create -n k8s-cloud-labs -l chinaeast2
@@ -197,7 +203,7 @@ Helm是Microsoft团队创建的开源项目。目前，Helm也已经是CNCF的�
 
 ```
 $ $env:path += 'C:\Users\luna\Downloads\helm-v2.14.1-windows-amd64\windows-amd64;'
-$ helm init
+$ helm init --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.14.1 --stable-repo-url https://mirror.azure.cn/kubernetes/charts/
 ```
 
 ### 3.3 部署WordPress应用
@@ -205,7 +211,7 @@ $ helm init
 执行命令`helm install`安装一个WordPress应用。
 
 ```
-$ helm install stable/wordpress --namespace lab02
+$ helm install bitnami/wordpress --set global.imageRegistry=dockerhub.azk8s.cn --namespace lab02
 ```
 
 执行部署后，通过命令`helm list`看查看到当前集群已经部署的容器应用。
