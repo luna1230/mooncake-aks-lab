@@ -344,13 +344,14 @@ $ git clone https://github.com/luna1230/japp-spring-boot-rest.git japp
 在Powershell 中解压Draft 安装文件
 
 ```
-$ cd C:\\Users\\luna\\Downloads && tar draft-v0.16.0-windows-amd64.tar.tar
+$ cd C:\\Users\\luna\\Downloads 
+$ tar xf draft-v0.16.0-windows-amd64.tar.tar
+$ $env:path += 'C:\Users\luna\Downloads\windows-amd64;'
 ```
 
-Draft解压完毕后，在cmd 命令行中执行
+Draft解压完毕后，回到所在应用的文件夹japp 执行
 
 ```
-$ set path=C:\Users\luna\Downloads\windows-amd64;%path%
 $ draft init
 ```
 
@@ -419,8 +420,6 @@ $ echo az role assignment create --assignee $CLIENT_ID --role Reader --scope $AC
 ```
 
 ### 4.8 云端容器镜像构建
-
-ACR不单止提供容器镜像的存取服务，ACR还提供基于云端的容器镜像构建服务。这意味着开发人员甚至不需要在本地开发环境安装Docker就可以进行容器镜像的构建。
 
 执行以下命令，让Draft使用ACR进行容器镜像的构建。
 
