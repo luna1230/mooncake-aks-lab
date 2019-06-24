@@ -398,7 +398,7 @@ namespace = "lab03"
 ```
 CMD ["/bin/bash", "-c", "find -type f -name '*-with-dependencies.jar' | xargs java -jar"] 
 ->
-CMD ["/bin/bash", "-c", "find -type f -name '*japp-*.jar' | xargs java -jar"]
+CMD ["/bin/bash", "-c", "find -type f -name 'japp-*.jar' | xargs java -jar"]
 ```
 ### 4.6 镜像仓库
 
