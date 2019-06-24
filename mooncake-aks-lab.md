@@ -394,7 +394,12 @@ $ ls -a
 ```
 namespace = "lab03"
 ```
-
+编辑Dockerfile ，替换最后一行命令
+```
+CMD ["/bin/bash", "-c", "find -type f -name '*-with-dependencies.jar' | xargs java -jar"] 
+->
+CMD ["/bin/bash", "-c", "find -type f -name '*japp-*.jar' | xargs java -jar"]
+```
 ### 4.6 镜像仓库
 
 应用容器化后将会生成容器镜像。容器镜像的存放也是一个需要重点关注的问题。用户可以将镜像存放在公共的镜像仓库或私有的镜像仓库中。Azure Container Registry（ACR）是Azure提供的一个镜像仓库服务。ACR是一个提供企业级安全和全球镜像同步功能的镜像仓库。
