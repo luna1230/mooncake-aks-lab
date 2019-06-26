@@ -218,7 +218,7 @@ $ helm init --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.14.1 --stable-
 执行命令`helm install`安装一个WordPress应用。
 
 ```
-$ helm install bitnami/wordpress --set global.imageRegistry=dockerhub.azk8s.cn --namespace lab02
+$ helm install stable/mysql --set global.imageRegistry=dockerhub.azk8s.cn --namespace lab02
 ```
 
 执行部署后，通过命令`helm list`看查看到当前集群已经部署的容器应用。
