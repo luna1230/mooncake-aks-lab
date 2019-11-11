@@ -344,7 +344,7 @@ Kubernetes的日志和监控指标的收集可以通过开源的Fluentd、Elasti
     $ az aks get-upgrades -g k8s-cloud-labs -n k8s-cluster
     Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
     -------  ---------------  ---------------  -----------------  --------------
-    default  k8s-cloud-labs   1.9.11           1.9.11             1.10.8, 1.10.9
+    default  k8s-cloud-labs   1.13.5           1.14.7             1.14.7, 1.14.
 
 > 提示！AKS是业界少有同时支持3个以上Kubernetes版本的服务。AKS有一套成文的Kubernetes版本支持策略，详情请参考：https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
 
@@ -384,7 +384,7 @@ Kubernetes的日志和监控指标的收集可以通过开源的Fluentd、Elasti
 
 下载本实验所使用的示例代码。该应用是一个基于Spring Boot的RESTful应用。
 
-    $ git clone https://github.com/nichochen/japp-spring-boot-rest.git japp 
+    $ git clone https://github.com/luna1230/japp-spring-boot-rest.git japp 
 
 ### 1.2 应用容器化
 
@@ -418,6 +418,11 @@ Draft将在应用的目录下生成许多配置相关的文件。
  编辑draft.toml将属性`namespace`修改为`lab03`。这样后续应用将会被部署到命名空间`lab03`里。
 
     namespace = "lab03"
+编辑Dockerfile ，替换最后一行命令
+
+    CMD ["/bin/bash", "-c", "find -type f -name '*-with-dependencies.jar' | xargs java -jar"] 
+    ->
+    CMD ["/bin/bash", "-c", "find -type f -name 'japp-*.jar' | xargs java -jar
 
 ### 1.6 镜像仓库
 
@@ -500,7 +505,7 @@ ACR不单止提供容器镜像的存取服务，ACR还提供基于云端的容�
 
 通过命令`curl`访问Draft监听的端口，即可访问远程的容器应用。
 
-    curl http://localhost:59698/greeting?name=Kubernetes
+    curl http://localhost:59698/greeting
 
 ### 1.11 运行本地变更
 
