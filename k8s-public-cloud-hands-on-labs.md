@@ -324,16 +324,6 @@ Kubernetes的日志和监控指标的收集可以通过开源的Fluentd、Elasti
     ---------  -------  ---------------  --------------  ----------------  ---------  --------
     nodepool1  4        Standard_DS2_v2  30              ManagedDisks      110        Linux
 
-除了快速为集群扩容外，也可以对集群进行缩容。在业务空闲时间，通过缩容，用户可以节省不必要的开销。在下面的例子里，我们将集群的节点缩减至2个。
-
-    $ az aks scale -g k8s-cloud-labs -n k8s-cluster -c 2
-
-缩容操作完成后检查集群节点，可以看到集群节点数已减少至2个。
-
-    $ az aks list --query "[?name=='k8s-cluster'].agentPoolProfiles[0].count"
-    Result
-    --------
-    2
 
 ### 1.9 Kubernetes集群的升级
 
@@ -344,13 +334,13 @@ Kubernetes的日志和监控指标的收集可以通过开源的Fluentd、Elasti
     $ az aks get-upgrades -g k8s-cloud-labs -n k8s-cluster
     Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
     -------  ---------------  ---------------  -----------------  --------------
-    default  k8s-cloud-labs   1.13.5           1.14.7             1.14.7, 1.14.
+    default  k8s-cloud-labs   1.13.5           1.14.7             1.14.7, 1.14.9
 
 > 提示！AKS是业界少有同时支持3个以上Kubernetes版本的服务。AKS有一套成文的Kubernetes版本支持策略，详情请参考：https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions
 
 当决定了目标升级版本后，通过命令`az aks upgrade`就可以将集群升级到指定的版本。执行如下命令，将集群升级至版本1.10.9。
 
-    $ az aks upgrade -g k8s-cloud-labs -n k8s-cluster -k 1.10.9
+    $ az aks upgrade -g k8s-cloud-labs -n k8s-cluster -k 1.14.7
     Kubernetes may be unavailable during cluster upgrades.
     Are you sure you want to perform this operation? (y/n): y
 
@@ -358,8 +348,8 @@ Kubernetes的日志和监控指标的收集可以通过开源的Fluentd、Elasti
 
     $ kubectl get nodes
     NAME                       STATUS    ROLES     AGE       VERSION
-    aks-nodepool1-16810059-1   Ready     agent     4m        v1.10.9
-    aks-nodepool1-16810059-2   Ready     agent     11m       v1.10.9
+    aks-nodepool1-16810059-1   Ready     agent     4m        v1.14.7
+    aks-nodepool1-16810059-2   Ready     agent     11m       v1.14.7
 
 ### 2 清理环境
 
